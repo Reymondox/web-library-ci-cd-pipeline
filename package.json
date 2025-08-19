@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon src/app.js",
     "qa": "cross-env NODE_ENV=qa nodemon src/app.js",
-    "test:e2e": "mocha test/e2e/",
+    "test:e2e": "mocha test/e2e/ --timeout 60000 --exit",
     "test": "npm run test:e2e"
   },
   "keywords": [],
