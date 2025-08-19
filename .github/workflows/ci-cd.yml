@@ -23,8 +23,19 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install Selenium Webdriver and Chromedriver
+        run: |
+          npm install selenium-webdriver
+          npm install chromedriver
+
+      - name: Start the web server
+        run: npm run start &
+
+      - name: Wait for server to start
+        run: sleep 10
+
       - name: Run E2E tests
-        run: npx start-server-and-test start http://localhost:3000 test:e2e
+        run: npm run test-e2e -- --headless --no-sandbox
 
   docker-build:
     needs: test-integration-e2e
