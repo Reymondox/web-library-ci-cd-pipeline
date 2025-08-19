@@ -27,21 +27,8 @@ jobs:
         run: |
           npm install selenium-webdriver
 
-      - name: Install Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-
-      - name: Install matching ChromeDriver
-        run: |
-          CHROME_VERSION=$(google-chrome --version | grep -oE "[0-9]+" | head -1)
-          echo "Detected Chrome major version: $CHROME_VERSION"
-          sudo apt-get install -y wget unzip
-          wget -q "https://storage.googleapis.com/chrome-for-testing-public/$CHROME_VERSION.0.0/linux64/chromedriver-linux64.zip"
-          unzip chromedriver-linux64.zip
-          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
-          rm -rf chromedriver-linux64*
-          chromedriver --version
+      - name: Set up Chrome & Chromedriver
+        uses: browser-actions/setup-chrome@v1
 
       - name: Start the web server
         run: npm run start &
