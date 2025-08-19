@@ -6,9 +6,8 @@
   "scripts": {
     "start": "nodemon src/app.js",
     "qa": "cross-env NODE_ENV=qa nodemon src/app.js",
-    "test-e2e": "mocha test/e2e/",
-    "lint": "eslint src/",
-    "ci-test": "mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./junit-report.xml"
+    "test:e2e": "mocha test/e2e/",
+    "test": "npm run test:e2e"
   },
   "keywords": [],
   "author": "Reymon Ruiz Reyes / Elvin Manuel Mendez Espinosa",
@@ -34,6 +33,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "mocha": "^10.2.0",
     "nodemon": "^3.1.10",
-    "selenium-webdriver": "^4.10.0"
+    "selenium-webdriver": "^4.10.0",
+    "start-server-and-test": "^2.0.13"
   }
 }
