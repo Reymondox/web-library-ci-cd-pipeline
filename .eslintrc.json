@@ -22,10 +22,14 @@
         "no-extra-semi": "error",
         "import/no-unused-modules": "off",
         "unicorn/better-regex": "off",
-        "no-self-assign": "off"
+        "no-self-assign": "off",
+        "no-undef": "off"
     },
     "ignorePatterns": [
         "**/*.min.js",
-        "src/public/assets/js/bootstrap/bootstrap.esm.min.js"
+        "src/public/assets/js/bootstrap/bootstrap.esm.min.js",
+        "src/public/assets/js/bootstrap/bootstrap.bundle.js",
+        "src/public/assets/js/bootstrap/bootstrap.esm.js",
+        "src/public/assets/js/bootstrap/bootstrap.js"
     ]
 }
