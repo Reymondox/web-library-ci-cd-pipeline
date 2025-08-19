@@ -3,13 +3,21 @@
         "browser": true,
         "commonjs": true,
         "es2021": true,
-        "node": true
+        "node": true,
+        "amd": true,
+        "jquery": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": 12
+        "ecmaVersion": 12,
+        "sourceType": "module"
     },
     "rules": {
-        "no-console": "off"
-    }
+        "no-console": "off",
+        "no-unused-vars": "warn",
+        "no-prototype-builtins": "off"
+    },
+    "ignorePatterns": [
+        "**/*.min.js"
+    ]
 }
