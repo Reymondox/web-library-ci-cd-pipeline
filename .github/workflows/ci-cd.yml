@@ -1,0 +1,72 @@
+name: CI/CD WebLibrary
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout del repositorio
+              uses: actions/checkout@v4
+            - name: Configurar Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '18'
+            - name: Instalar dependencias
+              run: npm install
+            - name: Ejecutar ESLint
+              run: npm run lint
+    
+    test-integration-e2e:
+        runs-on: ubuntu-latest
+        needs: lint
+        
+        services:
+            app:
+                image: node:18-alpine
+                ports:
+                    - 3000:3000
+                volumes:
+                    - ${{ github.workspace }}:/app
+                options: >-
+                    --workdir /app
+                    sh -c "npm install && node src/app.js"
+        
+        steps:
+            - name: Checkout del repositorio
+              uses: actions/checkout@v4
+
+            - name: Configurar Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '18'
+            
+            - name: Instalar dependencias
+              run: npm install
+              
+            - name: Esperar a que la aplicacion este lista
+              uses: jakejarvis/wait-for-it@v1
+              with:
+                  host: localhost
+                  port: 3000
+                  timeout: 60
+
+            - name: Ejecutar pruebas de Selenium
+              run: npm run test-e2e
+
+    docker-build:
+        runs-on: ubuntu-latest
+        needs: [lint, test-integration-e2e]
+        if: github.ref == 'refs/heads/main'
+        
+        steps:
+            - name: Checkout del repositorio
+              uses: actions/checkout@v4
+            - name: Construir la imagen Docker
+              run: docker build -t weblibrary:latest .

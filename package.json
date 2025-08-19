@@ -1,0 +1,40 @@
+{
+  "name": "selenium-mocha-github-actions-ci-cd",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "qa": "cross-env NODE_ENV=qa nodemon src/app.js",
+    "test-e2e": "mocha test/e2e/",
+    "lint": "eslint src/",
+    "ci-test": "mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./junit-report.xml"
+  },
+  "keywords": [],
+  "author": "Reymon Ruiz Reyes / Elvin Manuel Mendez Espinosa",
+  "license": "ISC",
+  "description": "Un pipeline DevOps para una biblioteca web.",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "connect-flash": "^0.1.1",
+    "cross-env": "^7.0.3",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.2",
+    "express-session": "^1.18.2",
+    "mariadb": "^3.4.4",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.5",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "eslint": "^8.2.0",
+    "selenium-webdriver": "^4.10.0"
+  }
+}
+
