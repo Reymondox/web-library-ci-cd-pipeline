@@ -7,10 +7,14 @@
         "amd": true,
         "jquery": true
     },
-    "extends": "airbnb-base",
+    "extends": [
+        "airbnb-base"
+    ],
+    "parser": "@babel/eslint-parser",
     "parserOptions": {
         "ecmaVersion": 2021,
         "sourceType": "module",
+        "requireConfigFile": false,
         "ecmaFeatures": {
             "topLevelAwait": true
         }
@@ -23,7 +27,18 @@
         "import/no-unused-modules": "off",
         "unicorn/better-regex": "off",
         "no-self-assign": "off",
-        "no-undef": "off"
+        "no-undef": "off",
+        "import/order": "off",
+        "import/extensions": "off",
+        "semi": "off",
+        "indent": "off",
+        "no-multiple-empty-lines": "off",
+        "quotes": "off",
+        "object-curly-spacing": "off",
+        "comma-dangle": "off",
+        "keyword-spacing": "off",
+        "import/no-named-as-default": "off",
+        "import/no-named-as-default-member": "off"
     },
     "ignorePatterns": [
         "**/*.min.js",
