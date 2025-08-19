@@ -10,6 +10,7 @@ Esta aplicación cuenta con:
 * Creación, edición y eliminación de editoriales.
 * Creación, edición y eliminación de autores.
 * Manejo de variables de entorno.
+* Manejo de errores en FrontEnd.
 
 Requisitos técnicos:
 * Git
@@ -39,8 +40,6 @@ PASOS PARA EJECUTAR PRUEBAS:
 Pipeline de CI/CD
 El pipeline, definido en .github/workflows/ci-cd.yml, se activa en cada push a la rama main y en cada pull request.
 
-    * lint: Realiza un análisis estático del código para asegurar que cumple con los estándares.
-
     * test: Ejecuta las pruebas de integración para validar la lógica y la conexión a la base de datos.
 
     * docker-build: Si los pasos anteriores son exitosos, construye la imagen Docker de la aplicación. Esto simula el "despliegue", ya que el contenedor resultante está listo para ser ejecutado en cualquier servidor.
@@ -66,11 +65,12 @@ Guia de contribución:
 
 
 Créditos: 
-Creado por Reymon Ruiz Reyes
-Matrícula 2024-0081
+    Creado por:
+    Reymon Ruiz Reyes
+    Matrícula 2024-0081
 
-y Elvin Manuel Méndes Espinosa
-Matrícula 2024-0104
+    Elvin Manuel Méndes Espinosa
+    Matrícula 2024-0104
 
 Instituto Tecnológico de Las Américas,
 República Dominicana
