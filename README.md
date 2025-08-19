@@ -19,8 +19,9 @@ Requisitos técnicos:
 * Una cuenta de GitHub
 
 PASOS PARA SU USO:
+
     Clona este repositorio:
-        git clone ht
+        git clone https://github.com/Reymondox/web-library-ci-cd-pipeline
         cd 
 
     Instala las dependencias de Node.js:
@@ -32,9 +33,10 @@ PASOS PARA SU USO:
     La aplicación estará disponible en http://localhost:3000.
 
 PASOS PARA EJECUTAR PRUEBAS:
+
     Para ejecutar las pruebas e2e, usa el siguiente comando:
 
-        npm test-e2e
+    npm test-e2e
 
 
 Pipeline de CI/CD
@@ -51,6 +53,7 @@ En un entorno de producción, la imagen construida por el pipeline sería subida
 Para este proyecto, el éxito del pipeline en la construcción de la imagen weblibrary:latest demuestra que la aplicación está lista para el despliegue.
 
 Guia de contribución:
+
     * Haz un "fork" del repositorio.
 
     * Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
@@ -65,6 +68,7 @@ Guia de contribución:
 
 
 Créditos: 
+
     Creado por:
     Reymon Ruiz Reyes
     Matrícula 2024-0081
