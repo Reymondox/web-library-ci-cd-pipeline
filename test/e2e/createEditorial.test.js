@@ -1,17 +1,27 @@
 import { Builder, By, until } from 'selenium-webdriver'
 import { saveScreenshot } from '../utils/saveScreenshot.js';
 import assert from 'assert'
+import chrome from 'selenium-webdriver/chrome'
 
 
 describe('Create editorial test', function(){
         this.timeout(20000);
         let driver
 
-    beforeEach(async function() {
-        //Launch Browser
-        driver = await new Builder().forBrowser("chrome").build()
-    })
-
+        beforeEach(async function() {
+            const options = new chrome.Options()
+                .addArguments("--headless=new")
+                .addArguments("--no-sandbox")
+                .addArguments("--disable-dev-shm-usage")
+                .addArguments(`--user-data-dir=/tmp/chrome-profile-${Date.now()}`)
+                .addArguments("--disable-gpu");
+        
+            driver = await new Builder()
+                .forBrowser("chrome")
+                .setChromeOptions(options)
+                .build();
+        });
+        
     afterEach(async function(){
         if(driver){
             await driver.quit();

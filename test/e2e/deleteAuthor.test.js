@@ -6,12 +6,20 @@ import assert from 'assert'
 describe('Delete Author Test', function(){
         this.timeout(20000);
         let driver
-
-    beforeEach(async function() {
-        //Launch Browser
-        driver = await new Builder().forBrowser("chrome").build()
-    })
-
+        
+        beforeEach(async function() {
+            const options = new chrome.Options()
+                .addArguments("--headless=new")
+                .addArguments("--no-sandbox")
+                .addArguments("--disable-dev-shm-usage")
+                .addArguments(`--user-data-dir=/tmp/chrome-profile-${Date.now()}`)
+                .addArguments("--disable-gpu");
+        
+            driver = await new Builder()
+                .forBrowser("chrome")
+                .setChromeOptions(options)
+                .build();
+        });
     afterEach(async function(){
         if(driver){
             await driver.quit();

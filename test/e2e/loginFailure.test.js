@@ -7,10 +7,18 @@ describe('Login failureness test', function(){
     let driver
 
     beforeEach(async function() {
-        //Launch Browser
-        driver = await new Builder().forBrowser("chrome").build()
-    })
-
+        const options = new chrome.Options()
+            .addArguments("--headless=new")
+            .addArguments("--no-sandbox")
+            .addArguments("--disable-dev-shm-usage")
+            .addArguments(`--user-data-dir=/tmp/chrome-profile-${Date.now()}`)
+            .addArguments("--disable-gpu");
+    
+        driver = await new Builder()
+            .forBrowser("chrome")
+            .setChromeOptions(options)
+            .build();
+    });
     afterEach(async function(){
         if(driver){
             await driver.quit();
