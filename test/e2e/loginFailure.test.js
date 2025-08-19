@@ -1,6 +1,7 @@
 import { Builder, By, until } from 'selenium-webdriver'
 import { saveScreenshot } from '../utils/saveScreenshot.js';
 import assert from 'assert'
+import chrome from 'selenium-webdriver/chrome.js'
 
 describe('Login failureness test', function(){
     this.timeout(20000);

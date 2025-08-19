@@ -1,12 +1,13 @@
 import { Builder, By, until } from 'selenium-webdriver'
 import { saveScreenshot } from '../utils/saveScreenshot.js';
 import assert from 'assert'
+import chrome from 'selenium-webdriver/chrome.js'
 
 
 describe('Delete Author Test', function(){
         this.timeout(20000);
         let driver
-        
+
         beforeEach(async function() {
             const options = new chrome.Options()
                 .addArguments("--headless=new")
