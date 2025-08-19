@@ -52,17 +52,17 @@ En un entorno de producción, la imagen construida por el pipeline sería subida
 Para este proyecto, el éxito del pipeline en la construcción de la imagen weblibrary:latest demuestra que la aplicación está lista para el despliegue.
 
 Guia de contribución:
-Haz un "fork" del repositorio.
+    * Haz un "fork" del repositorio.
 
-Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
+    * Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
 
-Haz tus cambios y prueba que todo funcione localmente (npm test).
+    * Haz tus cambios y prueba que todo funcione localmente (npm test).
 
-Realiza el "commit" (git commit -m 'feat: agrega nueva funcionalidad').
+    * Realiza el "commit" (git commit -m 'feat: agrega nueva funcionalidad').
 
-Empuja la rama a tu "fork" (git push origin feature/nueva-funcionalidad).
+    * Empuja la rama a tu "fork" (git push origin feature/nueva-funcionalidad).
 
-Abre un Pull Request.
+    * Abre un Pull Request.
 
 
 Créditos: 
