@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: Run E2E tests
-        run: npm run start-server-and-test start http://localhost:3000 test:e2e
+        run: npx start-server-and-test start http://localhost:3000 test:e2e
 
   docker-build:
     needs: test-integration-e2e
@@ -44,4 +44,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: tu-usuario-docker/tu-repo:latest
+          tags: reymondox/web-library-ci-cd-pipeline:latest
