@@ -9,15 +9,20 @@
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": 12,
+        "ecmaVersion": 2017,
         "sourceType": "module"
     },
     "rules": {
         "no-console": "off",
-        "no-unused-vars": "warn",
-        "no-prototype-builtins": "off"
+        "no-unused-vars": ["warn", { "argsIgnorePattern": "next" }],
+        "no-prototype-builtins": "off",
+        "no-extra-semi": "error",
+        "import/no-unused-modules": "off",
+        "unicorn/better-regex": "off",
+        "no-self-assign": "off"
     },
     "ignorePatterns": [
-        "**/*.min.js"
+        "**/*.min.js",
+        "src/public/assets/js/bootstrap/bootstrap.esm.min.js"
     ]
 }
