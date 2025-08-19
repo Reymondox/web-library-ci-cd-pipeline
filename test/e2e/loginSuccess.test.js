@@ -47,7 +47,7 @@ describe('Login successfullness test', function(){
             const submitButton = await driver.wait(until.elementLocated(By.id("create-button")))
             submitButton.click();
         
-            //Assert
+            //Assertion
             await driver.wait(until.urlIs(expectedURL), 10000);
         
             let currentURL = await driver.getCurrentUrl();
