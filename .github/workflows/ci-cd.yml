@@ -24,8 +24,12 @@ jobs:
         run: npm install
 
       - name: Run E2E tests
-        run: npm run test-e2e
-
+        run: |
+          npm install chromedriver --unsafe-perm --driver_version=104.0.5112.79
+          npm install selenium-webdriver
+          npm install mocha
+          npm install
+          npm run test-e2e -- --headless
   docker-build:
     needs: test-integration-e2e
     runs-on: ubuntu-latest
@@ -44,4 +48,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: tu-usuario-docker/tu-repo:latest
+          tags: reymondox/web-library-ci-cd-pipeline:latest
